@@ -56,7 +56,7 @@ Factor.prototype.getButton = function() {
 	var ret = "";
 	var unique = this.factor.filter( onlyUnique );
 	for(var i = 0;i < unique.length;i++) {
-		ret += '<input type="submit" value="&div;' + unique[i] + '" onclick="div(' + unique[i] + ')" .>';
+		ret += '<input type="submit" value="&div;' + unique[i] + '" onclick="div(' + unique[i] + ')" />';
 	}
 	return (ret);
 }
