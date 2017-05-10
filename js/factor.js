@@ -20,7 +20,7 @@ function Factor(number) {
 	}
 }
 
-factor.prototype.toString = function() {
+Factor.prototype.toString = function() {
 	if (this.factor == null)
 		return "0";
 	if (this.factor.length == 0)
