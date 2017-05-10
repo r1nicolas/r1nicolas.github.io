@@ -58,8 +58,24 @@ function factorize() {
 function set() {
 	n = document.getElementById('number').value;
 	factorize();
-	var hidden = document.getElementsByClassName('hidden').style.visibility = "visible";
+	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
-		hidden[i];
+		hidden[i].style.visibility = "visible";
+	;
 	}
+}
+
+function add() {
+	n += document.getElementById('number').value;
+	factorize();
+}
+
+function sub() {
+	n -= document.getElementById('number').value;
+	factorize();
+}
+
+function mult() {
+	n *= document.getElementById('number').value;
+	factorize();
 }
