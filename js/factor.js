@@ -1,3 +1,7 @@
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
+
 function Factor(number) {
 	if (number == 0)
 		this.factor = null;
@@ -20,13 +24,13 @@ function Factor(number) {
 	}
 }
 
-Factor.prototype.toString = function() {
+Factor.prototype.getFactor = function() {
 	if (this.factor == null)
-		return "0";
+		return ("0");
 	if (this.factor.length == 0)
-		return "1";
+		return ("1");
 	if (this.factor.length == 1 && this.factor[0] == -1)
-		return "-1";
+		return ("-1");
 	var ret;
 	var i;
 	if (this.factor[0] == -1) {
@@ -44,13 +48,27 @@ Factor.prototype.toString = function() {
 	return (ret);
 }
 
+Factor.prototype.getButton = function() {
+	if (this.factor == null || this.factor.length == 0)
+		return "";
+	if (this.factor.length == 1 && this.factor[0] == -1)
+		return "-1";
+	var ret = "";
+	var unique = this.factor.filter( onlyUnique );
+	for(var i = 0;i < unique.length;i++) {
+		ret += '<input type="submit" value="&div;' + unique[i] + '" onclick="div(' + unique[i] + ')" .>';
+	}
+	return (ret);
+}
+
 n = 0;
 
 function factorize() {
 	var text = n + ": ";
 	var factor = new Factor(n);
 	console.log(factor);
-	text += factor.toString();
+	text += factor.getFactor();
+	text += factor.getButton();
 	document.getElementById('display').innerHTML = text;
 	document.title = "Factorize " + n;
 }
