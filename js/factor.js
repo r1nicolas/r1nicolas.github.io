@@ -96,3 +96,8 @@ function mult() {
 	n *= document.getElementById('number').value;
 	factorize();
 }
+
+function div(number) {
+	n /= number;
+	factorize();
+}
