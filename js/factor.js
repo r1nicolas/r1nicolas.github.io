@@ -1,3 +1,3 @@
 function factorize() {
-	alert(document.getElementById("number").getAttribute("value"));
+	alert(document.getElementById("number").value);
 }
