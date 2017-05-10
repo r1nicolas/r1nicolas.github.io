@@ -44,7 +44,7 @@ Factor.prototype.toString = function() {
 	return (ret);
 }
 
-var n
+n = 0;
 function factorize() {
 	n = document.getElementById('number').value;
 	var text = n + ": ";
@@ -53,4 +53,5 @@ function factorize() {
 	text += factor.toString();
 	document.getElementById('display').innerHTML = text;
 	document.title = "Factorize " + n
+	document.getElementByClass('hidden').style.visibility = "visible";
 }
