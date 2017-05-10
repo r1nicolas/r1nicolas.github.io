@@ -10,7 +10,7 @@ function Factor(number) {
 			number = -number;
 		}
 		var i = 2;
-		while (i * i <= number) {
+		while (i <= number) {
 			while (number % i == 0) {
 				this.factor[this.factor.length] = i;
 				number /= i;
