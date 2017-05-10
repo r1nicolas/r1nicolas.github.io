@@ -101,3 +101,13 @@ function div(number) {
 	n /= number;
 	factorize();
 }
+
+function addOne() {
+	n = parseInt(n) + 1;
+	factorize();
+}
+
+function subOne() {
+	n -= 1;
+	factorize();
+}
