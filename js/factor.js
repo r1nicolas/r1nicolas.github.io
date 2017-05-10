@@ -53,5 +53,5 @@ function factorize() {
 	text += factor.toString();
 	document.getElementById('display').innerHTML = text;
 	document.title = "Factorize " + n
-	document.getElementByClass('hidden').style.visibility[0] = "visible";
+	document.getElementsByClass('hidden').style.visibility = "visible";
 }
