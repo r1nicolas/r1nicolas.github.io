@@ -44,11 +44,13 @@ Factor.prototype.toString = function() {
 	return (ret);
 }
 
+var n
 function factorize() {
-	var n = document.getElementById('number').value;
+	n = document.getElementById('number').value;
 	var text = n + ": ";
 	var factor = new Factor(n);
 	console.log(factor);
 	text += factor.toString();
 	document.getElementById('display').innerHTML = text;
+	document.title = "Factorize " + n
 }
