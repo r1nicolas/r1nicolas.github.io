@@ -66,7 +66,7 @@ function set() {
 }
 
 function add() {
-	n += document.getElementById('number').value;
+	n += Number(document.getElementById('number').value);
 	factorize();
 }
 
