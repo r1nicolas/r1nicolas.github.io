@@ -2,9 +2,9 @@ function Factor(number) {
 	if (number == 0)
 		this.factor = null;
 	else if (number == 1)
-		this.factor = array();
+		this.factor = [];
 	else {
-		this.factor = array();
+		this.factor = [];
 		if (number < 0) {
 			this.factor[] = -1;
 			number = -number;
