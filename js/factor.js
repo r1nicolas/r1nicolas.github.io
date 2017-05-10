@@ -45,13 +45,21 @@ Factor.prototype.toString = function() {
 }
 
 n = 0;
+
 function factorize() {
-	n = document.getElementById('number').value;
 	var text = n + ": ";
 	var factor = new Factor(n);
 	console.log(factor);
 	text += factor.toString();
 	document.getElementById('display').innerHTML = text;
 	document.title = "Factorize " + n;
-	getElementsByClass('hidden').style.visibility = "visible";
+}
+
+function set() {
+	n = document.getElementById('number').value;
+	factorize();
+	var hidden = document.getElementsByClass('hidden');
+	for(var i = 0;i < hidden.length;i++) {
+		hidden[i].style.visibility = "visible";
+	}
 }
