@@ -49,6 +49,6 @@ function factorize() {
 	var text = n + ": ";
 	var factor = new Factor(n);
 	console.log(factor);
-	text += factor.tostring();
+	text += factor.toString();
 	document.getElementById('display').innerHTML = text;
 }
