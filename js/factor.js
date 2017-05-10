@@ -52,6 +52,6 @@ function factorize() {
 	console.log(factor);
 	text += factor.toString();
 	document.getElementById('display').innerHTML = text;
-	document.title = "Factorize " + n
+	document.title = "Factorize " + n;
 	getElementsByClass('hidden').style.visibility = "visible";
 }
