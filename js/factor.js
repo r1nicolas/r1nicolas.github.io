@@ -1,3 +1,4 @@
-function factorize() {
-	alert(document.getElementById("number").value);
+function factorize() 
+	var n = document.getElementById('number').value;
+	alert("test" + n);
 }
