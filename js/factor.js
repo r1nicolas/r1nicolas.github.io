@@ -111,3 +111,42 @@ function subOne() {
 	n -= 1;
 	factorize();
 }
+
+/*	public function toImg() {
+		$img = "<div class='round'></div>";
+		$ret = "";
+		if ($this->array === null)
+			return "<br>";
+		else if ($this->array === array())
+			return "<span style='top: 5px; left: 5px;'>".$img."</span>";
+		else if ($this->array[0] == -1)
+			return "<br>";
+		else {
+			$radius = 5;
+			$tmp = $img;
+			$finalRadius = 5;
+			foreach ($this->array as $i => $number) {
+				$ret = "";
+				if ($number != 2)
+					$radius = (2 * $finalRadius + 5) / (2 * sin(pi() / $number));
+				else if ($i == 0)
+					$radius = 7.5;
+				else if ($i % 2 != 1)
+					$radius = 2 * $radius + 5;
+				$finalRadius += $radius;
+				if ($number == 2 && isset($this->array[$i + 1]) && $this->array[$i + 1] == 2) {
+					$ret .= "<div style='transform: rotate(90deg) translateY(-".$radius."px)'>".$tmp."</div>";
+					$ret .= "<div style='transform: rotate(270deg) translateY(-".$radius."px)'>".$tmp."</div>";
+				}
+				else {
+					for ($j = 0;$j < $number;$j++) {
+						$angle = $j * 360 / $number;
+						$ret .= "<div style='transform: rotate(".$angle."deg) translateY(-".$radius."px)'>".$tmp."</div>";
+					}
+				}
+				$tmp = $ret;
+			}
+			return "<span style='top: ".($finalRadius)."px; left: ".($finalRadius)."px;'>".$ret."</span>";
+		} 
+	}*/
+/*
