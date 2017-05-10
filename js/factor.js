@@ -6,13 +6,13 @@ function Factor(number) {
 	else {
 		this.factor = [];
 		if (number < 0) {
-			this.factor[] = -1;
+			this.factor[0] = -1;
 			number = -number;
 		}
 		var i = 2;
 		while (i * i <= number) {
 			while (number % i == 0) {
-				this.factor[] = i;
+				this.factor[this.factor.length] = i;
 				number /= i;
 			}
 			i++;
