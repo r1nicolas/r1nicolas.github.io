@@ -58,8 +58,8 @@ function factorize() {
 function set() {
 	n = document.getElementById('number').value;
 	factorize();
-	var hidden = document.getElementsByClassName('hidden');
+	var hidden = document.getElementsByClassName('hidden').style.visibility = "visible";
 	for(var i = 0;i < hidden.length;i++) {
-		hidden[i].style.visibility = "visible";
+		hidden[i];
 	}
 }
