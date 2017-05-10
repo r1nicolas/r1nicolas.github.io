@@ -20,16 +20,35 @@ function Factor(number) {
 	}
 }
 
-/*factor.prototype.toString = function() {
+factor.prototype.toString = function() {
 	if (this.factor == null)
 		return "0";
-	if ()
-}*/
+	if (this.factor.length == 0)
+		return "1";
+	if (this.factor.length == 1 && this.factor[0] == -1)
+		return "-1";
+	var ret;
+	var i;
+	if (this.factor[0] == -1) {
+		ret = "-";
+		i = 1;
+	}
+	else  {
+		ret = "";
+		i = 0;
+	}
+	for(;i < this.factor.length - 1;i++) {
+		ret += this.factor[i] + "&times;";
+	}
+	ret += this.factor[i];
+	return (ret);
+}
 
 function factorize() {
 	var n = document.getElementById('number').value;
 	var text = n + ": ";
 	var factor = new Factor(n);
 	console.log(factor);
+	text += factor.tostring();
 	document.getElementById('display').innerHTML = text;
 }
