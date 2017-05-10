@@ -67,7 +67,7 @@ function factorize() {
 	var text = n + ": ";
 	var factor = new Factor(n);
 	console.log(factor);
-	text += factor.getFactor();
+	text += factor.getFactor() + "<br />";
 	text += factor.getButton();
 	document.getElementById('display').innerHTML = text;
 	document.title = "Factorize " + n;
@@ -79,7 +79,6 @@ function set() {
 	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
 		hidden[i].style.visibility = "visible";
-	;
 	}
 }
 
