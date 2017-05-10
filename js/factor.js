@@ -1,4 +1,4 @@
 function factorize() {
 	var n = document.getElementById('number').value;
-	alert(n);
+	document.getElementById('dysplay').innerHTML = n;
 }
