@@ -66,7 +66,7 @@ Factor.prototype.getDiv = function() {
 	var ret = '';
 	if (this.factor === null)
 		return ("<br>");
-	else if (this.factor === [])
+	else if (this.factor.length == 0)
 		return ('<span style="top: 5px; left: 5px;">' + div + '</span>');
 	else if (this.factor[0] == -1)
 		return ("<br>");
