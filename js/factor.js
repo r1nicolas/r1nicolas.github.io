@@ -61,6 +61,44 @@ Factor.prototype.getButton = function() {
 	return (ret);
 }
 
+Factor.prototype.getDiv = function() {
+	var div = '<div class="round"></div>';
+	var ret = '';
+	if (this.factor === null)
+		return ("<br>");
+	else if (this.factor === [])
+		return ('<span style="top: 5px; left: 5px;">' + div + '</span>');
+	else if (this.factor[0] == -1)
+		return ("<br>");
+	else {
+		var radius = 5;
+		var tmp = div;
+		var finalRadius = 5;
+		for(var i = 0;i < this.factor.length;i++) {
+			ret = "";
+			if (this.factor[i] != 2)
+				radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / this.factor[i]));
+			else if (i == 0)
+				radius = 7.5;
+			else if (i % 2 == 0)
+				radius = 2 * radius + 5;
+			finalRadius += radius;
+			if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2) {
+				ret += '<div style="transform:rotate(90deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+				ret += '<div style="transform:rotate(270deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+			}
+			else {
+				for(var j = 0;j < this.factor[i];j++) {
+					var angle = j * 360 / this.factor[i];
+					ret += '<div style="transform:rotate(' + angle + 'deg) translate Y(-' + radius + 'px)>' + tmp + '</div>';
+				}
+			}
+			$tmp = ret;
+		}
+		return '<span style="top: ' + finalRadius + 'px; left: ' + finalRadius + 'px;">' + ret + '</span>';
+	}
+}
+
 n = 0;
 
 function factorize() {
@@ -111,42 +149,3 @@ function subOne() {
 	n -= 1;
 	factorize();
 }
-
-/*	public function toImg() {
-		$img = "<div class='round'></div>";
-		$ret = "";
-		if ($this->array === null)
-			return "<br>";
-		else if ($this->array === array())
-			return "<span style='top: 5px; left: 5px;'>".$img."</span>";
-		else if ($this->array[0] == -1)
-			return "<br>";
-		else {
-			$radius = 5;
-			$tmp = $img;
-			$finalRadius = 5;
-			foreach ($this->array as $i => $number) {
-				$ret = "";
-				if ($number != 2)
-					$radius = (2 * $finalRadius + 5) / (2 * sin(pi() / $number));
-				else if ($i == 0)
-					$radius = 7.5;
-				else if ($i % 2 != 1)
-					$radius = 2 * $radius + 5;
-				$finalRadius += $radius;
-				if ($number == 2 && isset($this->array[$i + 1]) && $this->array[$i + 1] == 2) {
-					$ret .= "<div style='transform: rotate(90deg) translateY(-".$radius."px)'>".$tmp."</div>";
-					$ret .= "<div style='transform: rotate(270deg) translateY(-".$radius."px)'>".$tmp."</div>";
-				}
-				else {
-					for ($j = 0;$j < $number;$j++) {
-						$angle = $j * 360 / $number;
-						$ret .= "<div style='transform: rotate(".$angle."deg) translateY(-".$radius."px)'>".$tmp."</div>";
-					}
-				}
-				$tmp = $ret;
-			}
-			return "<span style='top: ".($finalRadius)."px; left: ".($finalRadius)."px;'>".$ret."</span>";
-		} 
-	}*/
-/*
