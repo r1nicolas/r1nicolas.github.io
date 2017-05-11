@@ -5,10 +5,11 @@ function onlyUnique(value, index, self) {
 function hslToRgb(h, s, l) {
 	var r, g, b;
 
-	if(s == 0){
+	if(s == 0) {
 		r = g = b = l; // achromatic
-	}else{
-		var hue2rgb = function hue2rgb(p, q, t){
+	}
+	else {
+		var hue2rgb = function hue2rgb(p, q, t) {
 			if(t < 0) t += 1;
 			if(t > 1) t -= 1;
 			if(t < 1/6) return p + (q - p) * 6 * t;
