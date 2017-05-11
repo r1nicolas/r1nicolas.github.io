@@ -106,8 +106,8 @@ function factorize() {
 	var factor = new Factor(n);
 	console.log(factor);
 	text += factor.getFactor() + "<br />";
-	text += factor.getDiv() + "<br />";
-	text += factor.getButton();
+	text += factor.getButton() + "<br />";
+	text += factor.getDiv();
 	document.getElementById('display').innerHTML = text;
 	document.title = "Factorize " + n;
 }
