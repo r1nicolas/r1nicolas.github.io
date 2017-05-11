@@ -93,7 +93,7 @@ Factor.prototype.getDiv = function() {
 					ret += '<div style="transform:rotate(' + angle + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
 				}
 			}
-			$tmp = ret;
+			tmp = ret;
 		}
 		return '<span style="top: ' + finalRadius + 'px; left: ' + finalRadius + 'px;">' + ret + '</span>';
 	}
