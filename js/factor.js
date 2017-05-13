@@ -43,13 +43,15 @@ function Factor(number) {
 			number = -number;
 		}
 		var i = 2;
-		while (i <= number) {
+		while (i * i <= number) {
 			while (number % i == 0) {
 				this.factor[this.factor.length] = i;
 				number /= i;
 			}
 			i++;
 		}
+		if (number > 1)
+			this.factor[this.factor.length] = number;
 	}
 }
 
