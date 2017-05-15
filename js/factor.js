@@ -11,7 +11,7 @@ function hslToRgb(h) {
 		if(t < 1/6) return 6 * t;
 		if(t < 1/2) return 1;
 		if(t < 2/3) return 4 - 6 * t;
-		return p;
+		return 0;
 	}
 
 	r = hue2rgb(h + 1/3);
