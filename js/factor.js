@@ -76,8 +76,6 @@ Factor.prototype.getFactor = function() {
 Factor.prototype.getButton = function() {
 	if (this.factor == null || this.factor.length == 0)
 		return "";
-	if (this.factor.length == 1 && this.factor[0] == -1)
-		return "-1";
 	var ret = "";
 	var unique = this.factor.filter( onlyUnique );
 	for(var i = 0;i < unique.length;i++) {
