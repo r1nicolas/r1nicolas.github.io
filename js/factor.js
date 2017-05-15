@@ -119,9 +119,9 @@ Factor.prototype.getDiv = function() {
 				ret += '<div style="transform:rotate(270deg) translateY(-' + radius + 'px">' + tmp + '</div>';
 			}
 			else {
+				var angle = 360 / this.factor[i];
 				for(var j = 0;j < this.factor[i];j++) {
-					var angle = j * 360 / this.factor[i];
-					ret += '<div style="transform:rotate(' + angle + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
+					ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
 				}
 			}
 			tmp = ret;
