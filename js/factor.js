@@ -179,3 +179,19 @@ function subOne() {
 	n -= 1;
 	factorize();
 }
+
+int;
+
+function backward() {
+	window.clearInterval(int);
+	int = setInterval(subOne, 1000);
+}
+
+function stop() {
+	window.clearInterval(int);
+}
+
+function forward() {
+	window.clearInterval(int);
+	int = setInterval(addOne, 1000);
+}
