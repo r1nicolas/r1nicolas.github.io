@@ -180,7 +180,7 @@ function subOne() {
 	factorize();
 }
 
-int;
+var int;
 
 function backward() {
 	window.clearInterval(int);
