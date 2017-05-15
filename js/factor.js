@@ -2,21 +2,21 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
-function hslToRgb(h, s, l) {
+function hslToRgb(h) {
 	var r, g, b;
 
-	var hue2rgb = function hue2rgb(p, q, t) {
+	var hue2rgb = function hue2rgb(t) {
 		if(t < 0) t += 1;
 		if(t > 1) t -= 1;
-		if(t < 1/6) return p + (q - p) * 6 * t;
-		if(t < 1/2) return q;
-		if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+		if(t < 1/6) return 6 * t;
+		if(t < 1/2) return 1;
+		if(t < 2/3) return 4 - 6 * t;
 		return p;
 	}
 
-	r = hue2rgb(0, 1, h + 1/3);
-	g = hue2rgb(0, 1, h);
-	b = hue2rgb(0, 1, h - 1/3);
+	r = hue2rgb(h + 1/3);
+	g = hue2rgb(h);
+	b = hue2rgb(h - 1/3);
 	
 	r = Math.round(r * 255);
 	g = Math.round(g * 255);
@@ -136,7 +136,7 @@ function factorize() {
 	document.getElementById('display').innerHTML = text;
 	var round = document.getElementsByClassName("round");
 	for (i = 0;i < round.length;i++) {
-		round[i].style.background = hslToRgb(i / round.length, 1, 0.5);
+		round[i].style.background = hslToRgb(i / round.length);
 	}
 	document.title = "Factorize " + n;
 }
