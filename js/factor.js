@@ -128,18 +128,16 @@ function factorize() {
 	var t = Date.now();
 	var text = n + ": ";
 	var factor = new Factor(n);
-	console.log(Date.now() - t);
 	text += factor.getFactor() + "<br />";
-	console.log(Date.now() - t);
 	text += factor.getButton() + "<br />";
-	console.log(Date.now() - t);
 	text += factor.getDiv();
 	console.log(Date.now() - t);
 	document.getElementById('display').innerHTML = text;
 	console.log(Date.now() - t);
 	var round = document.getElementsByClassName("round");
-	for (i = 0;i < round.length;i++) {
-		round[i].style.background = hslToRgb(i / round.length);
+	var l = round.length;
+	for (i = 0;i < l;i++) {
+		round[i].style.background = hslToRgb(i / l);
 	}
 	console.log(Date.now() - t);
 	document.title = "Factorize " + n;
