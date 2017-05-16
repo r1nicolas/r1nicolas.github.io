@@ -125,17 +125,23 @@ Factor.prototype.getDiv = function() {
 n = 0;
 
 function factorize() {
+	var t = date.now();
 	var text = n + ": ";
 	var factor = new Factor(n);
-	console.log(factor);
+	console.log(date.now() - t);
 	text += factor.getFactor() + "<br />";
+	console.log(date.now() - t);
 	text += factor.getButton() + "<br />";
+	console.log(date.now() - t);
 	text += factor.getDiv();
+	console.log(date.now() - t);
 	document.getElementById('display').innerHTML = text;
+	console.log(date.now() - t);
 	var round = document.getElementsByClassName("round");
 	for (i = 0;i < round.length;i++) {
 		round[i].style.background = hslToRgb(i / round.length);
 	}
+	console.log(date.now() - t);
 	document.title = "Factorize " + n;
 }
 
