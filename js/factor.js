@@ -106,26 +106,30 @@ Factor.prototype.getDiv = function() {
 		var radius = 5;
 		var tmp = div;
 		var finalRadius = 5;
-		var parity = this.factor.indexOf(2) % 2;
 		for(var i = 0;i < this.factor.length;i++) {
-			ret = "";
-			if (this.factor[i] != 2)
-				radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / this.factor[i]));
-			else if (i == this.factor.indexOf(2))
-				radius = radius * 1.5;
-			else if (i % 2 == parity)
-				radius = 2 * radius + 5;
-			finalRadius += radius;
+			var number = this.factor[i];
 			if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2) {
-				ret += '<div style="transform:rotate(90deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-				ret += '<div style="transform:rotate(270deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+				number = 4;
+				i++;
 			}
-			else {
+			ret = "";
+			//if (number != 2)
+				radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / number));
+			//else if (i == this.factor.indexOf(2))
+			//	radius = radius * 1.5;
+			//else if (i % 2 == parity)
+			//	radius = 2 * radius + 5;
+			finalRadius += radius;
+			//if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2) {
+			//	ret += '<div style="transform:rotate(90deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+			//	ret += '<div style="transform:rotate(270deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+			//}
+			//else {
 				var angle = 360 / this.factor[i];
 				for(var j = 0;j < this.factor[i];j++) {
 					ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
 				}
-			}
+			//}
 			tmp = ret;
 		}
 		return '<span style="top: ' + finalRadius + 'px; left: ' + finalRadius + 'px;">' + ret + '</span>';
