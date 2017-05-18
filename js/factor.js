@@ -113,23 +113,20 @@ Factor.prototype.getDiv = function() {
 				i++;
 			}
 			ret = "";
-			//if (number != 2)
-				radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / number));
-			//else if (i == this.factor.indexOf(2))
-			//	radius = radius * 1.5;
-			//else if (i % 2 == parity)
-			//	radius = 2 * radius + 5;
+			radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / number));
 			finalRadius += radius;
-			//if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2) {
-			//	ret += '<div style="transform:rotate(90deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-			//	ret += '<div style="transform:rotate(270deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-			//}
-			//else {
+			if (number == 4) {
+				ret += '<div style="transform:rotate(45deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+				ret += '<div style="transform:rotate(135deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+				ret += '<div style="transform:rotate(225deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+				ret += '<div style="transform:rotate(315deg) translateY(-' + radius + 'px">' + tmp + '</div>';
+			}
+			else {
 				var angle = 360 / number;
 				for(var j = 0;j < number;j++) {
 					ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
 				}
-			//}
+			}
 			tmp = ret;
 		}
 		return '<span style="top: ' + finalRadius + 'px; left: ' + finalRadius + 'px;">' + ret + '</span>';
