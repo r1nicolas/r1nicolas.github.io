@@ -39,13 +39,22 @@ function Factor(number) {
 		var i = 2;
 		while (i * i <= number) {
 			while (number % i == 0) {
-				this.factor[this.factor.length] = i;
+				this.factor.push(i);
 				number /= i;
 			}
 			i++;
 		}
 		if (number > 1)
-			this.factor[this.factor.length] = number;
+			this.factor.push(number);
+		if (reverse) {
+			if(this.factor[0] == -1) {
+				this.factor.shift();
+				this.factor.reverse();
+				this.factor.unshift(-1);
+			}
+			else
+				this.factor.reverse();
+		}
 	}
 }
 
@@ -123,6 +132,7 @@ Factor.prototype.getDiv = function() {
 }
 
 n = 0;
+reverse = 0;
 
 function factorize() {
 	var t = Date.now();
@@ -141,6 +151,11 @@ function factorize() {
 	}
 	console.log(Date.now() - t);
 	document.title = "Factorize " + n;
+}
+
+function reverse() {
+	reverse = (reverse + 1) % 2;
+	factorize();
 }
 
 function set() {
