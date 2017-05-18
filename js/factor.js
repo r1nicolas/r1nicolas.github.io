@@ -46,7 +46,7 @@ function Factor(number) {
 		}
 		if (number > 1)
 			this.factor.push(number);
-		if (reverse) {
+		if (rev) {
 			if(this.factor[0] == -1) {
 				this.factor.shift();
 				this.factor.reverse();
@@ -132,7 +132,7 @@ Factor.prototype.getDiv = function() {
 }
 
 n = 0;
-reverse = 0;
+rev = 0;
 
 function factorize() {
 	var t = Date.now();
@@ -154,7 +154,7 @@ function factorize() {
 }
 
 function reverse() {
-	reverse = (reverse + 1) % 2;
+	rev = (rev + 1) % 2;
 	factorize();
 }
 
