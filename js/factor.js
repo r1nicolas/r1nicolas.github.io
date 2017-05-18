@@ -115,7 +115,7 @@ Factor.prototype.getDiv = function() {
 			else if (i % 2 == 0)
 				radius = 2 * radius + 5;
 			finalRadius += radius;
-			if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2) {
+			if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2 && i > 0 && this.factor[i - 1] == 2) {
 				ret += '<div style="transform:rotate(90deg) translateY(-' + radius + 'px">' + tmp + '</div>';
 				ret += '<div style="transform:rotate(270deg) translateY(-' + radius + 'px">' + tmp + '</div>';
 			}
