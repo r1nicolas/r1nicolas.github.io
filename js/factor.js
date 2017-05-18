@@ -106,13 +106,14 @@ Factor.prototype.getDiv = function() {
 		var radius = 5;
 		var tmp = div;
 		var finalRadius = 5;
+		var parity = this.factor.find(2) % 2;
 		for(var i = 0;i < this.factor.length;i++) {
 			ret = "";
 			if (this.factor[i] != 2)
 				radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / this.factor[i]));
 			else if (i == 0)
 				radius = 7.5;
-			else if (i % 2 == 0)
+			else if (i % 2 == parity)
 				radius = 2 * radius + 5;
 			finalRadius += radius;
 			if (this.factor[i] == 2 && (i + 1) < this.factor.length && this.factor[i + 1] == 2) {
