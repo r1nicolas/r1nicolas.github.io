@@ -128,7 +128,7 @@ Factor.prototype.getDiv = function() {
 				}
 			//}
 			if (number == 4)
-				ret += '<div style="transform:rotate(45deg)">' + ret + '</div>';
+				ret = '<div style="transform:rotate(45deg)">' + ret + '</div>';
 			tmp = ret;
 		}
 		return '<span style="top: ' + finalRadius + 'px; left: ' + finalRadius + 'px;">' + ret + '</span>';
