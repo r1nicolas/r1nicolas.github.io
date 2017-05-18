@@ -115,19 +115,11 @@ Factor.prototype.getDiv = function() {
 			ret = "";
 			radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / number));
 			finalRadius += radius;
-			//if (number == 4) {
-			//	ret += '<div style="transform:rotate(45deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-			//	ret += '<div style="transform:rotate(135deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-			//	ret += '<div style="transform:rotate(225deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-			//	ret += '<div style="transform:rotate(315deg) translateY(-' + radius + 'px">' + tmp + '</div>';
-			//}
-			//else {
-				var angle = 360 / number;
-				for(var j = 0;j < number;j++) {
-					ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
-				}
-			//}
-			if (number == 4 && (i + 2) < this.factor.length && this.factor[i + 2] != 2)
+			var angle = 360 / number;
+			for(var j = 0;j < number;j++) {
+				ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
+			}
+			if (number == 4 && ((i + 2) > this.factor.length || this.factor[i + 2] != 2))
 				ret = '<div style="transform:rotate(45deg)">' + ret + '</div>';
 			tmp = ret;
 		}
