@@ -127,7 +127,7 @@ Factor.prototype.getDiv = function() {
 					ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
 				}
 			//}
-			if (number == 4)
+			if (number == 4 && (i + 2) < this.factor.length && this.factor[i + 2] != 2)
 				ret = '<div style="transform:rotate(45deg)">' + ret + '</div>';
 			tmp = ret;
 		}
