@@ -112,7 +112,7 @@ Factor.prototype.getDiv = function() {
 			if (this.factor[i] != 2)
 				radius = (2 * finalRadius + 5) / (2 * Math.sin(Math.PI / this.factor[i]));
 			else if (i == this.factor.indexOf(2))
-				radius = radius + 2.5;
+				radius = radius * 1.5;
 			else if (i % 2 == parity)
 				radius = 2 * radius + 5;
 			finalRadius += radius;
