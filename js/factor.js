@@ -172,8 +172,8 @@ function reverse() {
 if (input = $_GET('number')) {
 	if ($_GET('reverse'))
 		reverse();
-	factorize();
 	n = input;
+	factorize();
 	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
 		hidden[i].style.visibility = "visible";
