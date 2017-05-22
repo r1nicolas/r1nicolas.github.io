@@ -150,6 +150,7 @@ function factorize() {
 	var text = n + ": ";
 	var factor = new Factor(n);
 	text += factor.getFactor() + "<br />";
+	text += '<a href="https://r1nicolas.github.io/?number=' + n + '&reverse=' + (rev ? "true" : "false") + '">direct link</a><br />';
 	text += factor.getButton() + "<br />";
 	text += factor.getDiv();
 	console.log(Date.now() - t);
