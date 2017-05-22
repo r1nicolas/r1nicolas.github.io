@@ -25,6 +25,21 @@ function hslToRgb(h) {
 	return "rgb( " + r + ", " + g + ", " + b + ")";
 }
 
+function $_GET(param) {
+	var vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			vars[key] = value !== undefined ? value : '';
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+}
+
 function Factor(number) {
 	if (number == 0)
 		this.factor = null;
@@ -152,6 +167,16 @@ function factorize() {
 function reverse() {
 	rev = (rev + 1) % 2;
 	factorize();
+}
+
+if (input = $_GET('number')) {
+	if ($_GET('reverse'))
+		reverse();
+	n = input;
+	var hidden = document.getElementsByClassName('hidden');
+	for(var i = 0;i < hidden.length;i++) {
+		hidden[i].style.visibility = "visible";
+	}
 }
 
 function set() {
