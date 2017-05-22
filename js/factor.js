@@ -172,6 +172,7 @@ function reverse() {
 if (input = $_GET('number')) {
 	if ($_GET('reverse'))
 		reverse();
+	factorize();
 	n = input;
 	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
