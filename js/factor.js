@@ -170,7 +170,7 @@ function reverse() {
 }
 
 if (input = $_GET('number')) {
-	if ($_GET('reverse') != 0)
+	if ($_GET('reverse') == true)
 		reverse();
 	n = input;
 	factorize();
