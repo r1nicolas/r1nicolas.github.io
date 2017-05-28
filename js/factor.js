@@ -162,22 +162,18 @@ rev = 0;
 shfl = 0;
 
 function factorize() {
-	var t = Date.now();
 	var text = n + ": ";
 	var factor = new Factor(n);
 	text += factor.getFactor() + "<br />";
 	text += '<a href="https://r1nicolas.github.io/?number=' + n + '&reverse=' + (rev ? "true" : "false") + '">direct link</a><br />';
 	text += factor.getButton() + "<br /><br />";
 	text += factor.getDiv();
-	console.log(Date.now() - t);
 	document.getElementById('display').innerHTML = text;
-	console.log(Date.now() - t);
 	var round = document.getElementsByClassName("round");
 	var l = round.length;
 	for (i = 0;i < l;i++) {
 		round[i].style.background = hslToRgb(i / l);
 	}
-	console.log(Date.now() - t);
 	document.title = "Factorize " + n;
 }
 
@@ -186,7 +182,7 @@ function reverse() {
 	factorize();
 }
 
-function suffle() {
+function shuffle() {
 	shfl = (shfl + 1) % 2;
 	factorize();
 }
