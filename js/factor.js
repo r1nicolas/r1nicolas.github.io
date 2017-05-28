@@ -2,6 +2,20 @@ function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
+/*
+ * Randomize array element order in-place.
+ * Using Durstenfeld shuffle algorithm.
+ */
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
 function hslToRgb(h) {
 	var r, g, b;
 
@@ -47,8 +61,9 @@ function Factor(number) {
 		this.factor = [];
 	else {
 		this.factor = [];
+		var neg = false;
 		if (number < 0) {
-			this.factor[0] = -1;
+			neg = true;
 			number = -number;
 		}
 		var i = 2;
@@ -62,13 +77,13 @@ function Factor(number) {
 		if (number > 1)
 			this.factor.push(number);
 		if (rev) {
-			if(this.factor[0] == -1) {
-				this.factor.shift();
-				this.factor.reverse();
-				this.factor.unshift(-1);
-			}
-			else
-				this.factor.reverse();
+			this.factor.reverse();
+		}
+		if (shfl) {
+			shuffleArray(this.factor);
+		}
+		if (neg) {
+			this.factor.unshift(-1);
 		}
 	}
 }
@@ -101,7 +116,7 @@ Factor.prototype.getButton = function() {
 	if (this.factor == null || this.factor.length == 0)
 		return "";
 	var ret = "";
-	var unique = this.factor.filter( onlyUnique );
+	var unique = this.factor.filter(onlyUnique);
 	for(var i = 0;i < unique.length;i++) {
 		ret += '<input type="submit" value="&div;' + unique[i] + '" onclick="div(' + unique[i] + ')" />';
 	}
@@ -144,6 +159,7 @@ Factor.prototype.getDiv = function() {
 
 n = 0;
 rev = 0;
+shfl = 0;
 
 function factorize() {
 	var t = Date.now();
@@ -167,6 +183,11 @@ function factorize() {
 
 function reverse() {
 	rev = (rev + 1) % 2;
+	factorize();
+}
+
+function suffle() {
+	shfl = (shfl + 1) % 2;
 	factorize();
 }
 
