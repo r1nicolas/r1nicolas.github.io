@@ -116,12 +116,10 @@ Factor.prototype.getButton = function() {
 Factor.prototype.getDiv = function() {
 	var div = '<div class="round"></div>';
 	var ret = '';
-	if (this.factor === null)
+	if (this.factor === null || this.neg)
 		return ("<br>");
-	else if (this.factor.length == 0 && !this.neg)
-		return ('<span style="top: 5px; left: 5px;">' + div + '</span>');
 	else if (this.factor.length == 0)
-		return ("<br>");
+		return ('<span style="top: 5px; left: 5px;">' + div + '</span>');
 	else {
 		var radius = 5;
 		var tmp = div;
