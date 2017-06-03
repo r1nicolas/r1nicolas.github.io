@@ -101,7 +101,7 @@ Factor.prototype.getFactor = function() {
 }
 
 Factor.prototype.getButton = function() {
-	if (this.factor == null || (this.factor.length == 0 && !this.neg)
+	if (this.factor == null || (this.factor.length == 0 && !this.neg))
 		return "";
 	var ret = "";
 	if (this.neg)
