@@ -55,15 +55,15 @@ function $_GET(param) {
 }
 
 function Factor(number) {
+	this.neg = false;
 	if (number == 0)
 		this.factor = null;
 	else if (number == 1)
 		this.factor = [];
 	else {
 		this.factor = [];
-		var neg = false;
 		if (number < 0) {
-			neg = true;
+			this.neg = true;
 			number = -number;
 		}
 		var i = 2;
@@ -76,36 +76,24 @@ function Factor(number) {
 		}
 		if (number > 1)
 			this.factor.push(number);
-		if (rev) {
+		if (rev)
 			this.factor.reverse();
-		}
-		if (shfl) {
+		if (shfl)
 			shuffleArray(this.factor);
-		}
-		if (neg) {
-			this.factor.unshift(-1);
-		}
 	}
 }
 
 Factor.prototype.getFactor = function() {
 	if (this.factor == null)
 		return ("0");
-	if (this.factor.length == 0)
+	if (this.factor.length == 0 && !this.neg)
 		return ("1");
-	if (this.factor.length == 1 && this.factor[0] == -1)
+	if (this.factor.length == 0)
 		return ("-1");
-	var ret;
-	var i;
-	if (this.factor[0] == -1) {
+	var ret = "";
+	if (this.neg)
 		ret = "-";
-		i = 1;
-	}
-	else  {
-		ret = "";
-		i = 0;
-	}
-	for(;i < this.factor.length - 1;i++) {
+	for(var i = 0;i < this.factor.length - 1;i++) {
 		ret += this.factor[i] + "&times;";
 	}
 	ret += this.factor[i];
@@ -113,9 +101,11 @@ Factor.prototype.getFactor = function() {
 }
 
 Factor.prototype.getButton = function() {
-	if (this.factor == null || this.factor.length == 0)
+	if (this.factor == null || (this.factor.length == 0 && !this.neg)
 		return "";
 	var ret = "";
+	if (this.neg)
+		ret += '<input type="submit" value="&div;-1" onclick="div(-1)" />';
 	var unique = this.factor.filter(onlyUnique);
 	for(var i = 0;i < unique.length;i++) {
 		ret += '<input type="submit" value="&div;' + unique[i] + '" onclick="div(' + unique[i] + ')" />';
@@ -128,9 +118,9 @@ Factor.prototype.getDiv = function() {
 	var ret = '';
 	if (this.factor === null)
 		return ("<br>");
-	else if (this.factor.length == 0)
+	else if (this.factor.length == 0 && !this.neg)
 		return ('<span style="top: 5px; left: 5px;">' + div + '</span>');
-	else if (this.factor[0] == -1)
+	else if (this.factor.length == 0)
 		return ("<br>");
 	else {
 		var radius = 5;
