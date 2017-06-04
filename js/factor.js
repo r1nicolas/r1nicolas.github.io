@@ -169,7 +169,7 @@ Factor.prototype.link = function() {
 	ret = "";
 	if (this.neg)
 		ret += "-1,";
-	ret += this.factor.reduce(function(a, b) {a + "," + b}, "")
+	ret += this.factor.reduce(function(a, b) { return (a + "," + b) }, "");
 }
 
 n = 0;
@@ -205,7 +205,7 @@ function shuffle() {
 if (input = $_GET('number')) {
 	if (input.includes(",")) {
 		n = input.split(",");
-		n = n.reduce(function(a,b) { return a*b; });
+		n = n.reduce(function(a,b) { return (a * b); } );
 	}
 	else
 		n = input;
