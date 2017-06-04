@@ -55,11 +55,19 @@ function $_GET(param) {
 }
 
 function Factor(number) {
+	if (number.includes(",")) {
+		this.factor = number.split(",");
+		if (this.factor[0] == -1) {
+			this.neg = true;
+			this.factor.unpush();
+		}
+		else
+			this.neg = false;
+		return ;
+	}
 	this.neg = false;
 	if (number == 0)
 		this.factor = null;
-	else if (number == 1)
-		this.factor = [];
 	else {
 		this.factor = [];
 		if (number < 0) {
@@ -151,6 +159,19 @@ Factor.prototype.shuffle = function() {
 	shuffleArray(this.factor);
 }
 
+Factor.prototype.link = function() {
+	if (this.factor == null)
+		return ("0");
+	if (this.factor.length == 0 && this.neg)
+		return ("-1");
+	if (this.factor.length == 0)
+		return ("1");
+	ret = "";
+	if (this.neg)
+		ret += "-1,";
+	ret += this.factor.reduce(function(a, b) = {a + "," + b}, "")
+}
+
 n = 0;
 rev = 0;
 factor = null;
@@ -158,7 +179,7 @@ factor = null;
 function draw() {
 	var text = n + ": ";
 	text += factor.getFactor() + "<br />";
-	text += '<a href="https://r1nicolas.github.io/?number=' + n + '&reverse=' + (rev ? "true" : "false") + '">direct link</a><br />';
+	text += '<a href="https://r1nicolas.github.io/?number=' + factor.link() + '">direct link</a><br />';
 	text += factor.getButton() + "<br /><br />";
 	text += factor.getDiv();
 	document.getElementById('display').innerHTML = text;
@@ -182,10 +203,13 @@ function shuffle() {
 }
 
 if (input = $_GET('number')) {
-	if ($_GET('reverse') == "true")
-		reverse();
-	n = input;
-	factor = new Factor(n);
+	if (input.includes(",")) {
+		n = input.split(",");
+		n = n.reduce(function(a,b) { return a*b; });
+	}
+	else
+		n = input;
+	factor = new Factor(input);
 	draw();
 	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
