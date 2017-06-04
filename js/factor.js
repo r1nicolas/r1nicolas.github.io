@@ -170,7 +170,8 @@ Factor.prototype.link = function() {
 	ret = "";
 	if (this.neg)
 		ret += "-1,";
-	ret = this.factor.toString;
+	ret += this.factor.toString();
+	return (ret);
 }
 
 n = 0;
