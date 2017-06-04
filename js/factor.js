@@ -177,7 +177,7 @@ function reverse() {
 }
 
 function shuffle() {
-	factor.shuffle()draw;
+	factor.shuffle();
 	draw();
 }
 
