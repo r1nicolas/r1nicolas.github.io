@@ -169,7 +169,7 @@ Factor.prototype.link = function() {
 	ret = "";
 	if (this.neg)
 		ret += "-1,";
-	ret += this.factor.reduce(function(a, b) = {a + "," + b}, "")
+	ret += this.factor.reduce(function(a, b) {a + "," + b}, "")
 }
 
 n = 0;
