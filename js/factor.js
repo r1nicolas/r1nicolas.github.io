@@ -59,7 +59,7 @@ function Factor(number) {
 		this.factor = number.split(",");
 		if (this.factor[0] == -1) {
 			this.neg = true;
-			this.factor.unpush();
+			this.factor.unshift();
 		}
 		else
 			this.neg = false;
@@ -169,7 +169,7 @@ Factor.prototype.link = function() {
 	ret = "";
 	if (this.neg)
 		ret += "-1,";
-	ret += this.factor.reduce(function(a, b) { return (a + "," + b) }, "");
+	ret += this.factor.reduce(function(a, b) { return (a.toString() + "," + b.toString()); }, "");
 }
 
 n = 0;
