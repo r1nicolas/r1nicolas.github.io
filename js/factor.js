@@ -78,8 +78,6 @@ function Factor(number) {
 			this.factor.push(number);
 		if (rev)
 			this.factor.reverse();
-		if (shfl)
-			shuffleArray(this.factor);
 	}
 }
 
@@ -145,13 +143,20 @@ Factor.prototype.getDiv = function() {
 	}
 }
 
+Factor.prototype.reverse = function() {
+	this.factor.reverse()
+}
+
+Factor.prototype.shuffle = function() {
+	shuffleArray(this.factor);
+}
+
 n = 0;
 rev = 0;
-shfl = 0;
+factor = null;
 
-function factorize() {
+function draw() {
 	var text = n + ": ";
-	var factor = new Factor(n);
 	text += factor.getFactor() + "<br />";
 	text += '<a href="https://r1nicolas.github.io/?number=' + n + '&reverse=' + (rev ? "true" : "false") + '">direct link</a><br />';
 	text += factor.getButton() + "<br /><br />";
@@ -167,19 +172,21 @@ function factorize() {
 
 function reverse() {
 	rev = (rev + 1) % 2;
-	factorize();
+	factor.reverse();
+	draw();
 }
 
 function shuffle() {
-	shfl = (shfl + 1) % 2;
-	factorize();
+	factor.shuffle()draw;
+	draw();
 }
 
 if (input = $_GET('number')) {
 	if ($_GET('reverse') == "true")
 		reverse();
 	n = input;
-	factorize();
+	factor = new Factor(n);
+	draw();
 	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
 		hidden[i].style.visibility = "visible";
@@ -188,7 +195,8 @@ if (input = $_GET('number')) {
 
 function set() {
 	n = document.getElementById('number').value;
-	factorize();
+	factor = new Factor(n);
+	draw();
 	var hidden = document.getElementsByClassName('hidden');
 	for(var i = 0;i < hidden.length;i++) {
 		hidden[i].style.visibility = "visible";
@@ -197,32 +205,38 @@ function set() {
 
 function add() {
 	n = parseInt(n) + parseInt(document.getElementById('number').value);
-	factorize();
+	factor = new Factor(n);
+	draw();
 }
 
 function sub() {
 	n -= document.getElementById('number').value;
-	factorize();
+	factor = new Factor(n);
+	draw();
 }
 
 function mult() {
 	n *= document.getElementById('number').value;
-	factorize();
+	factor = new Factor(n);
+	draw();
 }
 
 function div(number) {
 	n /= number;
-	factorize();
+	factor = new Factor(n);
+	draw();
 }
 
 function addOne() {
 	n = parseInt(n) + 1;
-	factorize();
+	factor = new Factor(n);
+	draw();
 }
 
 function subOne() {
 	n -= 1;
-	factorize();
+	factor = new Factor(n);
+	draw();
 }
 
 var int;
