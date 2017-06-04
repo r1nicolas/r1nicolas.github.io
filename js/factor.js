@@ -55,6 +55,7 @@ function $_GET(param) {
 }
 
 function Factor(number) {
+	number = number.toString();
 	if (number.includes(",")) {
 		this.factor = number.split(",");
 		if (this.factor[0] == -1) {
@@ -169,7 +170,7 @@ Factor.prototype.link = function() {
 	ret = "";
 	if (this.neg)
 		ret += "-1,";
-	ret += this.factor.reduce(function(a, b) { return (a.toString() + "," + b.toString()); }, "");
+	ret = this.factor.reduce(function(a, b) { return (a.toString() + "," + b.toString()); }, "ret");
 }
 
 n = 0;
