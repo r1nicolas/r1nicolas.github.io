@@ -60,7 +60,7 @@ function Factor(number) {
 		this.factor = number.split(",");
 		if (this.factor[0] == -1) {
 			this.neg = true;
-			this.factor.unshift();
+			this.factor.shift();
 		}
 		else
 			this.neg = false;
