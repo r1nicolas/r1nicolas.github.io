@@ -110,7 +110,7 @@ Factor.prototype.getButton = function() {
 	if (this.neg)
 		ret += '<input type="submit" value="&div;-1" onclick="div(-1)" />';
 	for(var i = 0;i < this.factor.length;i++) {
-		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="div(' + this.factor[i] + ')"></i></p>';
+		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="remove('+ i + ', ' + this.factor[i] + ')"></i></p>';
 		ret += '<p class="center"><i class="fa fa-arrow-left point" aria-hidden="true"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true"></i></p>';
 		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
 	}
@@ -155,6 +155,10 @@ Factor.prototype.reverse = function() {
 
 Factor.prototype.shuffle = function() {
 	shuffleArray(this.factor);
+}
+
+Factor.prototype.remove = function(i) {
+	this.factor.splice(i, 1);
 }
 
 Factor.prototype.link = function() {
@@ -259,6 +263,12 @@ function addOne() {
 function subOne() {
 	n -= 1;
 	factor = new Factor(n);
+	draw();
+}
+
+function remove(i, number) {
+	n /= number;
+	factor.remove(i);
 	draw();
 }
 
