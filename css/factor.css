@@ -30,7 +30,8 @@ p {
 
 .close {
 	text-align: right;
-	color: red
+	color: red;
+	cursor: pointer
 }
 
 .center {
