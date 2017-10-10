@@ -111,7 +111,7 @@ Factor.prototype.getButton = function() {
 		ret += '<input type="submit" value="&div;-1" onclick="div(-1)" />';
 	for(var i = 0;i < this.factor.length;i++) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="remove('+ i + ', ' + this.factor[i] + ')"></i></p>';
-		ret += '<p class="center"><i class="fa fa-arrow-left point" aria-hidden="true"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true"></i></p>';
+		ret += '<p class="center"><i class="fa fa-arrow-left point" aria-hidden="true" onclick="moveLeft('+ i + ')"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true" onclick="moveRight('+ i + ')"></i></p>';
 		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
 	}
 	return (ret);
@@ -159,6 +159,22 @@ Factor.prototype.shuffle = function() {
 
 Factor.prototype.remove = function(i) {
 	this.factor.splice(i, 1);
+}
+
+Factor.prototype.moveLeft = function(i) {
+	if (i > 0) {
+		tmp = this.factor[i];
+		this.factor[i] = this.factor[i - 1];
+		this.factor[i - 1] = tmp;
+	}
+}
+
+Factor.prototype.moveRight = function(i) {
+	if (i + 1 > this.factor.length) {
+		tmp = this.factor[i];
+		this.factor[i] = this.factor[i + 1];
+		this.factor[i + 1] = tmp;
+	}
 }
 
 Factor.prototype.link = function() {
