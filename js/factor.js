@@ -170,7 +170,7 @@ Factor.prototype.moveLeft = function(i) {
 }
 
 Factor.prototype.moveRight = function(i) {
-	if (i + 1 > this.factor.length) {
+	if (i + 1 < this.factor.length) {
 		tmp = this.factor[i];
 		this.factor[i] = this.factor[i + 1];
 		this.factor[i + 1] = tmp;
