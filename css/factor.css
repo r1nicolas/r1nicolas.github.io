@@ -3,6 +3,7 @@ div {
 	top: 0;
 	left: 0
 }
+
 .round {
 	background-color: black;
 	height: 10px;
@@ -11,10 +12,17 @@ div {
 	top: -5px;
 	left: -5px
 }
+
 span {
 	position: relative
 }
 
 p {
 	margin: 0
+}
+
+.square {
+	background: lavender;
+	display: inline-block;
+	padding: 10px
 }
