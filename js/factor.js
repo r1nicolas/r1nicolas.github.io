@@ -288,6 +288,16 @@ function remove(i, number) {
 	draw();
 }
 
+function moveLeft(i) {
+	factor.moveLeft(i);
+	draw();
+}
+
+function moveRight(i) {
+	factor.moveRight(i);
+	draw();
+}
+
 var int;
 
 function backward() {
