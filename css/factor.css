@@ -31,9 +31,12 @@ p {
 .close {
 	text-align: right;
 	color: red;
-	cursor: pointer
 }
 
 .center {
 	text-align: center
+}
+
+.point {
+	cursor: pointer
 }
