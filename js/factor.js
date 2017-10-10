@@ -110,8 +110,8 @@ Factor.prototype.getButton = function() {
 	if (this.neg)
 		ret += '<input type="submit" value="&div;-1" onclick="div(-1)" />';
 	for(var i = 0;i < this.factor.length;i++) {
-		ret += '<span class="square"><p id="close" onclick="div(' + this.factor[i] + ')"><i class="fa fa-times" aria-hidden="true"></i></p>';
-		ret += '<p><i class="fa fa-arrow-left" aria-hidden="true"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right" aria-hidden="true"></i></p>';
+		ret += '<span class="square"><p class="close" onclick="div(' + this.factor[i] + ')"><i class="fa fa-times" aria-hidden="true"></i></p>';
+		ret += '<p class="center"><i class="fa fa-arrow-left" aria-hidden="true"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right" aria-hidden="true"></i></p>';
 		ret += '<p><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p></span> ';
 	}
 	return (ret);
