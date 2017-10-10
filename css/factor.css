@@ -28,7 +28,7 @@ p {
 	width: 60px
 }
 
-#close {
+.close {
 	text-align: right;
 	color: red
 }
