@@ -113,9 +113,8 @@ Factor.prototype.getButton = function() {
 	var ret = "";
 	if (this.neg)
 		ret += '<input type="submit" value="&div;-1" onclick="div(-1)" />';
-	var unique = this.factor.filter(onlyUnique);
-	for(var i = 0;i < unique.length;i++) {
-		ret += '<input type="submit" value="&div;' + unique[i] + '" onclick="div(' + unique[i] + ')" />';
+	for(var i = 0;i < this.factor.length;i++) {
+		ret += '<input type="submit" value="&div;' + this.factor[i] + '" onclick="div(' + this.factor[i] + ')" />';
 	}
 	return (ret);
 }
