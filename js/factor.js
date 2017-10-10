@@ -1,7 +1,3 @@
-function onlyUnique(value, index, self) { 
-    return self.indexOf(value) === index;
-}
-
 /*
  * Randomize array element order in-place.
  * Using Durstenfeld shuffle algorithm.
@@ -114,7 +110,8 @@ Factor.prototype.getButton = function() {
 	if (this.neg)
 		ret += '<input type="submit" value="&div;-1" onclick="div(-1)" />';
 	for(var i = 0;i < this.factor.length;i++) {
-		ret += '<span><i class="fa fa-times" aria-hidden="true"></i><br /><i class="fa fa-arrow-left" aria-hidden="true"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right" aria-hidden="true"></i><br /><i class="fa fa-pencil-square-o " aria-hidden="true"></i></span>';
+		ret += '<span><div class="top" onclick="div(' + this.factor[i] + ')"><i class="fa fa-times" aria-hidden="true"></i><div>';
+		ret += '<i class="fa fa-arrow-left" aria-hidden="true"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right" aria-hidden="true"></i><br /><i class="fa fa-pencil-square-o " aria-hidden="true"></i></span>';
 	}
 	return (ret);
 }
