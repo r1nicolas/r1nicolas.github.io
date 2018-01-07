@@ -107,14 +107,12 @@ Factor.prototype.getButton = function() {
 	if (this.factor == null || (this.factor.length == 0 && !this.neg))
 		return "";
 	var ret = "";
-	i = 0
 	if (this.neg) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="div(-1)"></i></p>';
 		ret += '<p class="center">-1</p>';
 		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
-		i++;
 	}
-	for(;i < this.factor.length;i++) {
+	for(i=0;i < this.factor.length;i++) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="remove('+ i + ', ' + this.factor[i] + ')"></i></p>';
 		ret += '<p class="center"><i class="fa fa-arrow-left point" aria-hidden="true" onclick="moveLeft('+ i + ')"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true" onclick="moveRight('+ i + ')"></i></p>';
 		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
