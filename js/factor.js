@@ -112,9 +112,9 @@ Factor.prototype.getButton = function() {
 		ret += '<p class="center">-1</p>';
 		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
 	}
-	for(i=0;i < this.factor.length;i++) {
+	for(i = 0;i < this.factor.length;i++) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="remove('+ i + ', ' + this.factor[i] + ')"></i></p>';
-		ret += '<p class="center"><i class="fa fa-arrow-left point" aria-hidden="true" onclick="moveLeft('+ i + ')"></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true" onclick="moveRight('+ i + ')"></i></p>';
+		ret += '<p class="center">' + (i != 0 ? '<i class="fa fa-arrow-left point" aria-hidden="true" onclick="moveLeft('+ i + ')"></i>') + ' ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true" onclick="moveRight('+ i + ')"></i></p>';
 		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
 	}
 	return (ret);
