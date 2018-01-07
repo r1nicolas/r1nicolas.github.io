@@ -46,5 +46,10 @@ p {
 }
 
 div #popin {
-	position: fixed
+	position: fixed;
+	padding: 5px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: lavender
 }
