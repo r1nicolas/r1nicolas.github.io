@@ -45,7 +45,7 @@ p {
 	visibility: hidden
 }
 
-div #popin {
+div#popin {
 	position: fixed;
 	padding: 5px;
 	left: 50%;
