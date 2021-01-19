@@ -46,6 +46,7 @@ p {
 }
 
 div#popin {
+	visibility: hidden;
 	position: fixed;
 	padding: 5px;
 	left: 50%;
