@@ -321,5 +321,14 @@ function forward() {
 	int = setInterval(addOne, 1000);
 }
 
+var p;
+
 function modify(i) {
+	p = i;
+	popin = document.getElementById('popin');
+	popin.style.visibility = "visible";
+}
+
+function replace() {
+	alert("replace");
 }
