@@ -110,7 +110,6 @@ Factor.prototype.getButton = function() {
 	if (this.neg) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="div(-1)"></i></p>';
 		ret += '<p class="center">-1</p>';
-		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
 	}
 	for(i = 0;i < this.factor.length;i++) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="remove('+ i + ', ' + this.factor[i] + ')"></i></p>';
