@@ -115,7 +115,7 @@ Factor.prototype.getButton = function() {
 	for(i = 0;i < this.factor.length;i++) {
 		ret += '<span class="square"><p class="close"><i class="fa fa-times point" aria-hidden="true" onclick="remove('+ i + ', ' + this.factor[i] + ')"></i></p>';
 		ret += '<p class="center"><i class="fa fa-arrow-left point" aria-hidden="true" ' + (i != 0 ? 'onclick="moveLeft('+ i + ')"' : 'style="color: lavender; cursor: default"') + '></i> ' + this.factor[i] + ' <i class="fa fa-arrow-right point" aria-hidden="true" ' + (i != this.factor.length - 1 ? 'onclick="moveRight('+ i + ')"' : 'style="color: lavender; cursor: default"') + '"></i></p>';
-		ret += '<p><i class="fa fa-pencil-square-o point" aria-hidden="true"></i></p></span> ';
+		ret += '<p><i class="fa fa-pencil-square-o point" onclick="modify('+ i + ')" aria-hidden="true"></i></p></span> ';
 	}
 	return (ret);
 }
@@ -162,6 +162,10 @@ Factor.prototype.shuffle = function() {
 
 Factor.prototype.remove = function(i) {
 	this.factor.splice(i, 1);
+}
+
+Factor.prototype.change = function(i, n) {
+	this.factor[i] = n;
 }
 
 Factor.prototype.moveLeft = function(i) {
@@ -315,4 +319,7 @@ function stop() {
 function forward() {
 	window.clearInterval(int);
 	int = setInterval(addOne, 1000);
+}
+
+function modify(i) {
 }
