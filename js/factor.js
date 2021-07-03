@@ -330,5 +330,9 @@ function modify(i) {
 }
 
 function replace() {
-	alert("replace");
+	n = document.getElementById('popinValue').value;
+	factor.change(p, n);
+	popin = document.getElementById('popin');
+	popin.style.visibility = "hidden";
+	draw();	
 }
