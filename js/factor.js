@@ -330,8 +330,10 @@ function modify(i) {
 }
 
 function replace() {
-	n = document.getElementById('popinValue').value;
-	factor.change(p, n);
+	m = document.getElementById('popinValue').value;
+	n /= factor.factor[p];
+	n *= m;
+	factor.change(p, m);
 	popin = document.getElementById('popin');
 	popin.style.visibility = "hidden";
 	draw();	
