@@ -144,8 +144,8 @@ Factor.prototype.getDiv = function() {
 			for(var j = 0;j < number;j++) {
 				ret += '<div style="transform:rotate(' + (j * angle) + 'deg) translateY(-' + radius + 'px)">' + tmp + '</div>';
 			}
-			if (number == 4 && ((i + 2) > this.factor.length || this.factor[i + 1] != 2 || this.factor[i + 2] != 2))
-				ret = '<div style="transform:rotate(45deg)">' + ret + '</div>';
+			//if (number == 4 && ((i + 2) > this.factor.length || this.factor[i + 1] != 2 || this.factor[i + 2] != 2))
+			//	ret = '<div style="transform:rotate(45deg)">' + ret + '</div>';
 			tmp = ret;
 		}
 		return '<span style="top: ' + finalRadius + 'px; left: ' + finalRadius + 'px;">' + ret + '</span>';
