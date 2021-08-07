@@ -1,9 +1,29 @@
-<!DOCTYPE html>
+*<!DOCTYPE html>
 <html>
 	<head>
 		<title>Quaternion</title>
 		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
-  <body>
-    <input type="number" name="real_1" id="real_1" />+<input type="number" name="i_1" id="i_1" />i+<input type="number" name="j_1" id="j_1" />j+<input type="number" name="k_1" id="k_1" />k<br />
-    <input type="number" name="real_2" id="real_2" />+<input type="number" name="i_2" id="i_2" />i+<input type="number" name="j_2" id="j_2" />j+<input type="number" name="k_2" id="k_2" />k<br />
+	<body>
+		<input type="number" name="real_1" id="real_1" />+<input type="number" name="i_1" id="i_1" />i+<input type="number" name="j_1" id="j_1" />j+<input type="number" name="k_1" id="k_1" />k<br />
+		<input type="number" name="real_2" id="real_2" />+<input type="number" name="i_2" id="i_2" />i+<input type="number" name="j_2" id="j_2" />j+<input type="number" name="k_2" id="k_2" />k<br />
+		<input type="submit" value="Multiply" onclick="multiply()" /><br />
+		<p id="result"></p>
+	<script type="text/javascript">
+		function multiply() {
+			real_1 = document.getElementById('real_1').value;
+			i_1 = document.getElementById('i_1').value;
+			j_1 = document.getElementById('j_1').value;
+			k_1 = document.getElementById('k_1').value;
+			real_2 = document.getElementById('real_2').value;
+			i_2 = document.getElementById('i_2').value;
+			j_2 = document.getElementById('j_2').value;
+			k_2 = document.getElementById('k_2').value;
+			real_r = real_1 * real_2 - i_1 * i_2 - j_1 * j_2 - k_1 * k_2;
+			i_r = real_1 * i_2 + i_1 * real_2 + j_1 * k_2 - k_1 * j_2;
+			j_r = real_1 * j_2 + j_1 * real_2 + k_1 * i_2 - i_1 * k_2;
+			k_r = real_1 * k_2 + k_1 * real_2 + i_1 * j_2 - j_1 * i_2;
+			result = "resultat = " + real_r + "+" + i_r + "i+" + j_r + "j+" +  k_r +"k";
+			document.getElementById('result').innerHTML = result;	
+		}
+	</script>
