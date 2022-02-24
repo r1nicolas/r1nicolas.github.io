@@ -18,8 +18,8 @@ function drawVortex() {
 	point[0].d = 0;
 	for(var i = 1;i < modulo;i++) {
 		point[i].d = (i * multiplier) % modulo;
-		point[i].x = 275 + 250 * Math.sin(i * 2 * Math.PI / modulo)
-		point[i].y = 275 - 250 * Math.cos(i * 2 * Math.PI / modulo)
+		point[i].x = 275 + 250 * Math.sin(i * 2 * Math.PI / modulo);
+		point[i].y = 275 - 250 * Math.cos(i * 2 * Math.PI / modulo);
 	}
 	for(var i = 1;i < modulo;i++) {
 		ctx.beginPath();
