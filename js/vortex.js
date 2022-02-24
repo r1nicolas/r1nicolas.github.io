@@ -9,7 +9,7 @@ ctx.stroke();
 function drawVortex() {
 	var modulo = document.getElementById('modulo').value;
 	var multiplier =  document.getElementById('multiplier').value;
-	var point[i];
+	var point = new Array(i);
 
 	if (modulo < 2 || multiplier < 0)
 		return;
