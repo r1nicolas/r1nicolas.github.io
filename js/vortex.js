@@ -5,7 +5,7 @@ var ctx = vortex.getContext('2d');
 ctx.beginPath();
 ctx.arc(275, 275, 250, 0, Math.PI * 2, true);  // Cercle extérieur
 ctx.stroke();
-ctx.font = "12px sans-serif"
+ctx.font = "15px sans-serif"
 
 function drawVortex() {
 	var modulo = document.getElementById('modulo').value;
