@@ -6,7 +6,7 @@ ctx.beginPath();
 ctx.arc(275, 275, 250, 0, Math.PI * 2, true);  // Cercle extérieur
 ctx.stroke();
 
-function draw() {
+function drawVortex() {
 	var modulo = document.getElementById('modulo').value;
 	var multiplier =  document.getElementById('multiplier').value;
 	var point[i];
