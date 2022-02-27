@@ -52,6 +52,6 @@ function drawVortex() {
 		ctx.moveTo(point[i].x, point[i].y);
 		ctx.lineTo(point[point[i].d].x, point[point[i].d].y);
 		ctx.stroke();
-		arrowHead((point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
+		arrowHead(point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
 	}
 }
