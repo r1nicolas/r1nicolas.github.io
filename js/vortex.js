@@ -16,7 +16,7 @@ function arrowCap(xA, yA, xB, yB) {
 	arrowWidth = 8;
 	ctx.lineCap = "round";
 
-	AB=Norm(xA, yA, xB, yB);
+	AB=norm(xA, yA, xB, yB);
 	xC = xB + arrowLength * (xA - xB) / AB;
 	yC = yB + arrowLength * (yA - yB) / AB;
 	xD = xC + arrowWidth * ( - (yB - yA)) / AB;
