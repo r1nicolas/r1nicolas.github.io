@@ -11,7 +11,7 @@ function norm(xA, yA, xB, yB) {
 	return Math.sqrt(Math.pow(xB - xA, 2) + Math.pow(yB - yA, 2));
 }
 
-function arrowCap(xA, yA, xB, yB) {
+function arrowHead(xA, yA, xB, yB) {
 	arrowLength = 10;
 	arrowWidth = 8;
 
@@ -52,6 +52,6 @@ function drawVortex() {
 		ctx.moveTo(point[i].x, point[i].y);
 		ctx.lineTo(point[point[i].d].x, point[point[i].d].y);
 		ctx.stroke();
-		arrowCap(point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
+		arrowHead((point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
 	}
 }
