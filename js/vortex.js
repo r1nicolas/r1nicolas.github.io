@@ -41,9 +41,11 @@ function drawVortex() {
 	ctx.beginPath();
 	ctx.arc(275, 275, 250, 0, Math.PI * 2, true);  // Cercle extérieur
 	ctx.stroke();
-	for(var i = 0;i < modulo;i++) {
+	point[0] = {d:0, y:275, x:25};
+	ctx.fillText(0, 270, 15);
+	for(var i = 1;i < modulo;i++) {
 		point[i] = {d:(i * multiplier) % modulo, x:275 + 250 * Math.sin(i * 2 * Math.PI / modulo), y:275 - 250 * Math.cos(i * 2 * Math.PI / modulo)};
-		ctx.fillText(i.toString(), 275 + 265 * Math.sin(i * 2 * Math.PI / modulo) - 5 * (1 + Math.floor(Math.log10(i))), 280 - 265 * Math.cos(i * 2 * Math.PI / modulo));
+		ctx.fillText(i, 275 + 265 * Math.sin(i * 2 * Math.PI / modulo) - 5 * (1 + Math.floor(Math.log10(i))), 280 - 265 * Math.cos(i * 2 * Math.PI / modulo));
 	}
 	for(var i = 1;i < modulo;i++) {
 		ctx.beginPath();
