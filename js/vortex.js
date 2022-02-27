@@ -14,7 +14,6 @@ function norm(xA, yA, xB, yB) {
 function arrowCap(xA, yA, xB, yB) {
 	arrowLength = 10;
 	arrowWidth = 8;
-	ctx.lineCap = "round";
 
 	AB=norm(xA, yA, xB, yB);
 	xC = xB + arrowLength * (xA - xB) / AB;
