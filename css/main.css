@@ -8,15 +8,13 @@ h1 {
   color: #333;
   font-size: 36px;
   text-align: center;
-  margin: 20px 0;
 }
 
 a {
   color: #069;
   text-decoration: none;
   font-size: 18px;
-  display: block;
-  margin: 10px 0;
+  text-align: center;
 }
 
 a:hover {
