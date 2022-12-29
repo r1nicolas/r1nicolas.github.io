@@ -66,7 +66,6 @@ function toggleArrow() {
 	drawVortex();
 }
 
-
 function toggleLabel() {
 	label = !label;
 	drawVortex();
