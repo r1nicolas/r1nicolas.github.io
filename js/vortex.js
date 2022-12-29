@@ -55,3 +55,9 @@ function drawVortex() {
 		arrowHead(point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
 	}
 }
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    drawVortex();
+  }
+});
