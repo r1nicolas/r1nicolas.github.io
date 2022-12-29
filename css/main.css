@@ -12,11 +12,16 @@ h1 {
 
 a {
   color: #069;
-  display: block;
+  text-decoration: none;
   font-size: 18px;
+  display: block;
   text-align: center;
+  background-color: #eee;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a:hover {
-  text-decoration: underline;
+  background-color: #ccc;
 }
