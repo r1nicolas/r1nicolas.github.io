@@ -76,5 +76,3 @@ document.addEventListener('keydown', event => {
 		drawVortex();
 	}
 });
-
-	
