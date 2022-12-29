@@ -6,6 +6,7 @@ ctx.beginPath();
 ctx.arc(275, 275, 250, 0, Math.PI * 2, true);  // Cercle extérieur
 ctx.stroke();
 ctx.font = "15px sans-serif"
+var arrow = true;
 
 function norm(xA, yA, xB, yB) {
 	return Math.sqrt(Math.pow(xB - xA, 2) + Math.pow(yB - yA, 2));
@@ -52,12 +53,18 @@ function drawVortex() {
 		ctx.moveTo(point[i].x, point[i].y);
 		ctx.lineTo(point[point[i].d].x, point[point[i].d].y);
 		ctx.stroke();
-		arrowHead(point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
+		if (arrow)
+			arrowHead(point[i].x, point[i].y, point[point[i].d].x, point[point[i].d].y);
 	}
 }
 
 document.addEventListener('keydown', event => {
-  if (event.key === 'Enter') {
-    drawVortex();
-  }
+	if(event.key === 'Enter'){
+		drawVortex();
+	}
 });
+
+function toggleArrow() {
+	arrow = !arrow;
+}
+	
