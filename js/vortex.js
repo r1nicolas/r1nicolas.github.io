@@ -7,6 +7,7 @@ ctx.arc(275, 275, 250, 0, Math.PI * 2, true);  // Cercle extérieur
 ctx.stroke();
 ctx.font = "15px sans-serif"
 var arrow = true;
+var label = true;
 
 function norm(xA, yA, xB, yB) {
 	return Math.sqrt(Math.pow(xB - xA, 2) + Math.pow(yB - yA, 2));
@@ -46,7 +47,8 @@ function drawVortex() {
 	ctx.fillText(0, 270, 15);
 	for(var i = 1;i < modulo;i++) {
 		point[i] = {d:(i * multiplier) % modulo, x:275 + 250 * Math.sin(i * 2 * Math.PI / modulo), y:275 - 250 * Math.cos(i * 2 * Math.PI / modulo)};
-		ctx.fillText(i, 275 + 265 * Math.sin(i * 2 * Math.PI / modulo) - 5 * (1 + Math.floor(Math.log10(i))), 280 - 265 * Math.cos(i * 2 * Math.PI / modulo));
+		if (label)
+			ctx.fillText(i, 275 + 265 * Math.sin(i * 2 * Math.PI / modulo) - 5 * (1 + Math.floor(Math.log10(i))), 280 - 265 * Math.cos(i * 2 * Math.PI / modulo));
 	}
 	for(var i = 1;i < modulo;i++) {
 		ctx.beginPath();
@@ -58,14 +60,21 @@ function drawVortex() {
 	}
 }
 
+function toggleArrow() {
+	arrow = !arrow;
+	drawVortex();
+}
+
+
+function toggleLabel() {
+	label = !label;
+	drawVortex();
+}
+
 document.addEventListener('keydown', event => {
 	if(event.key === 'Enter'){
 		drawVortex();
 	}
 });
 
-function toggleArrow() {
-	arrow = !arrow;
-	drawVortex();
-}
 	
