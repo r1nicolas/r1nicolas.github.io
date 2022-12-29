@@ -66,5 +66,6 @@ document.addEventListener('keydown', event => {
 
 function toggleArrow() {
 	arrow = !arrow;
+	drawVortex();
 }
 	
