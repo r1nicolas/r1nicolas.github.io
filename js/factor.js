@@ -338,3 +338,9 @@ function replace() {
 	popin.style.visibility = "hidden";
 	draw();	
 }
+
+document.addEventListener('keydown', event => {
+	if(event.key === 'Enter'){
+		draw();
+	}
+});
