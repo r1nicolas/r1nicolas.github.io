@@ -341,6 +341,6 @@ function replace() {
 
 document.addEventListener('keydown', event => {
 	if(event.key === 'Enter'){
-		draw();
+		set();
 	}
 });
